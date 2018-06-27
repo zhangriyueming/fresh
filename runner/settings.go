@@ -38,6 +38,7 @@ var settings = map[string]string{
 	"main_path":		 "",
 	"build_command":	 "",
 	"only_build":		 "0",
+	"initial_build":	 "1",
 }
 
 var colors = map[string]string{

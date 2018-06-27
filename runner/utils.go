@@ -57,6 +57,11 @@ func isWatchedFile(path string) bool {
 }
 
 func shouldRebuild(eventName string) bool {
+
+	if eventName == "/" {
+		return false
+	}
+
 	for _, e := range strings.Split(settings["no_rebuild_ext"], ",") {
 		e = strings.TrimSpace(e)
 		fileName := strings.Replace(strings.Split(eventName, ":")[0], `"`, "", -1)
