@@ -33,6 +33,10 @@ var settings = map[string]string{
 	"log_color_runner":  "green",
 	"log_color_watcher": "magenta",
 	"log_color_app":     "",
+	"build_goos":		 "",
+	"build_goarch":		 "",
+	"main_path":		 "",
+	"build_command":	 "",
 }
 
 var colors = map[string]string{

@@ -104,6 +104,10 @@ func setEnvVars() {
 		key := strings.ToUpper(fmt.Sprintf("%s%s", envSettingsPrefix, k))
 		os.Setenv(key, v)
 	}
+
+	os.Setenv("BUILD_GOOS", settings["build_goos"])
+	os.Setenv("BUILD_GOARCH", settings["build_goarch"])
+	os.Setenv("MAIN_PATH", settings["main_path"])	
 }
 
 // Watches for file changes in the root directory.
