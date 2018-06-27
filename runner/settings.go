@@ -37,6 +37,7 @@ var settings = map[string]string{
 	"build_goarch":		 "",
 	"main_path":		 "",
 	"build_command":	 "",
+	"only_build":		 "0",
 }
 
 var colors = map[string]string{

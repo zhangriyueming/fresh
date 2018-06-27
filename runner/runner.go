@@ -3,9 +3,18 @@ package runner
 import (
 	"io"
 	"os/exec"
+	"strconv"
 )
 
 func run() bool {
+	only_build, err := strconv.Atoi(settings["only_build"])
+	if err != nil {
+		fatal(err)
+	}
+	if only_build != 0 {
+		return true
+	}
+
 	runnerLog("Running...")
 
 	cmd := exec.Command(buildPath())
