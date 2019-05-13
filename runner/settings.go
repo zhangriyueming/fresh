@@ -35,6 +35,7 @@ var settings = map[string]string{
 	"log_color_app":     "",
 	"build_goos":        "",
 	"build_goarch":      "",
+	"cgo_enabled":       "",
 	"main_path":         "",
 	"build_command":     "",
 	"only_build":        "0",
