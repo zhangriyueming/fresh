@@ -13,11 +13,18 @@ func build() (string, bool) {
 	var cmd *exec.Cmd
 
 	if len(settings["build_command"]) < 1 {
-		cmd = exec.Command("go", "build", "-o", buildPath(), root())
+		if len(settings["build_args"]) < 1 {
+			cmd = exec.Command("go", "build", "-o", buildPath(), root())
+		} else {
+			cmd = exec.Command("go", "build", "-o", buildPath(), root(), settings["build_args"])
+		}
 	} else {
-		cmd = exec.Command(settings["build_command"])
+		if len(settings["build_args"]) < 1 {
+			cmd = exec.Command(settings["build_command"])
+		} else {
+			cmd = exec.Command(settings["build_command"], settings["build_args"])
+		}
 	}
-
 
 	stderr, err := cmd.StderrPipe()
 	if err != nil {
