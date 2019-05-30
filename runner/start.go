@@ -109,6 +109,7 @@ func setEnvVars() {
 	os.Setenv("BUILD_GOARCH", settings["build_goarch"])
 	os.Setenv("MAIN_PATH", settings["main_path"])
 	os.Setenv("CGO_ENABLED", settings["cgo_enabled"])
+	os.Setenv("OUTPUT", tmpPath())
 }
 
 // Watches for file changes in the root directory.
