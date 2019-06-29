@@ -4,6 +4,7 @@ import (
 	"io"
 	"os/exec"
 	"strconv"
+	"strings"
 )
 
 func run() bool {
@@ -17,7 +18,13 @@ func run() bool {
 
 	runnerLog("Running...")
 
-	cmd := exec.Command(buildPath())
+	var cmd *exec.Cmd
+	if len(settings["run_args"]) < 1 {
+		cmd = exec.Command(buildPath())
+	} else {
+		args := strings.Fields(settings["run_args"])
+		cmd = exec.Command(buildPath(), args...)
+	}
 
 	stderr, err := cmd.StderrPipe()
 	if err != nil {

@@ -40,6 +40,7 @@ var settings = map[string]string{
 	"build_command":     "",
 	"only_build":        "0",
 	"build_args":        "",
+	"run_args":          "",
 	"initial_build":     "1",
 }
 
