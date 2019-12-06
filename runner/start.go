@@ -35,6 +35,19 @@ func start() {
 
 	started := false
 
+	exists, _ := fileExists(buildPath())
+
+	if !exists {
+		errorMessage, ok := build()
+		if !ok {
+			mainLog("Build Failed: \n %s", errorMessage)
+			if !started {
+				os.Exit(1)
+			}
+			createBuildErrorsLog(errorMessage)
+		}
+	}
+
 	go func() {
 		for {
 			loopIndex++

@@ -92,3 +92,13 @@ func removeBuildErrorsLog() error {
 
 	return err
 }
+
+func fileExists(filePath string) (bool, error) {
+	if _, err := os.Stat(filePath); err != nil {
+		if os.IsNotExist(err) {
+			return false, nil
+		}
+		return false, err
+	}
+	return true, nil
+}
